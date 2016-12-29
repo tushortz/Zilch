@@ -248,26 +248,10 @@ class Scorer:
             return return_value
 
         def __eq__(self, score_to_compare):
-            if self.number_of_dice_used > score_to_compare.number_of_dice_used:
+            if self.number_of_dice_used > score_to_compare:
                 return_value = 1
 
-            elif self.number_of_dice_used == score_to_compare.number_of_dice_used:
-                if self.score > score_to_compare.score:
-                    return_value = 1
-                elif self.score == score_to_compare.score:
-                    return_value = 0
-                else:
-                    return_value = -1
-            else:
-                return_value = -1
-
-            return return_value
-
-        def compare_to(self, score_to_compare):
-            if self.number_of_dice_used > score_to_compare.number_of_dice_used:
-                return_value = 1
-
-            elif self.number_of_dice_used == score_to_compare.number_of_dice_used:
+            elif self.number_of_dice_used == score_to_compare:
                 if self.score > score_to_compare.score:
                     return_value = 1
                 elif self.score == score_to_compare.score:

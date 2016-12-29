@@ -14,7 +14,6 @@ def add_player(name, tactics, win_count, players, chatty):
 
 
 def main(number_of_games, chatty):
-
     win_count = dict()
     players = []
     tactic = Tactic()
@@ -42,4 +41,4 @@ def main(number_of_games, chatty):
 
 
 if __name__ == "__main__":
-    main(1, True)
+    main(10, False)

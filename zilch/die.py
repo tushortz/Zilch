@@ -16,9 +16,13 @@ class Die:
         Die class representing the six die faces of a normal dice
     """
 
-    def __init__(self, number_of_sides=6):
+    def __init__(self, value=None, number_of_sides=6):
         self.number_of_sides = number_of_sides
-        self.value = self.roll()
+
+        if type(value) == int:
+            self.value = value
+        else:
+            self.value = self.roll()
 
     def __repr__(self):
         return str(self.value)
@@ -36,17 +40,17 @@ class Die:
             return -1
 
     def __lt__(self, die_to_compare):
-        if self.get_value() == die_to_compare.get_value():
+        if self.get_value() == die_to_compare:
             return 0
-        elif self.get_value() > die_to_compare.get_value():
+        elif self.get_value() > die_to_compare:
             return 1
         else:
             return -1
 
     def __gt__(self, die_to_compare):
-        if self.get_value() == die_to_compare.get_value():
+        if self.get_value() == die_to_compare:
             return 0
-        elif self.get_value() > die_to_compare.get_value():
+        elif self.get_value() > die_to_compare:
             return 1
         else:
             return -1

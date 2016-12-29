@@ -36,13 +36,11 @@ class Tactic:
         player_score = scoreboard.get_score((player))
 
         if player_score == 0:
-            if turn_score >= 1000:
-                if dice_available_to_throw > 3:
-                    return False
-                else:
-                    return True
-            else:
+            if turn_score >= 1000 and dice_available_to_throw > 3:
                 return False
+            else:
+                return True
+
         elif player_score >= 10000:
             return True
         elif dice_available_to_throw == 5 or dice_available_to_throw == 4:
@@ -122,10 +120,7 @@ class Tactic:
             if len(dice) >= 3:
                 the_value = best_value * self.get_increment(len(dice))
 
-            if the_value > highscore:
-                highscore = the_value
-
-        return highscore
+        return max(highscore, the_value)
 
     def join_dice(self, dice_list1, dice_list2):
         return dice_list1 + dice_list2
